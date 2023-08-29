@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).attach();
 
+        binding.mainPager.setCurrentItem(0);
 
 
 
