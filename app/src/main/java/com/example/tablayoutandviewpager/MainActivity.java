@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     PagerAdapter adapter;
-    ArrayList<MyTab> tabs;
+    ArrayList<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        tabs = new ArrayList<>();
-        tabs.add(new MyTab("Food", CategoryFragment.newInstance("Food")));
-        tabs.add(new MyTab("Drinks", CategoryFragment.newInstance("Drinks")));
-        tabs.add(new MyTab("Deserts", CategoryFragment.newInstance("Deserts")));
-        tabs.add(new MyTab("Other", CategoryFragment.newInstance("Other")));
+        categories = new ArrayList<>();
+        categories.add(new Category("Food", CategoryFragment.newInstance("Food")));
+        categories.add(new Category("Drinks", CategoryFragment.newInstance("Drinks")));
+        categories.add(new Category("Deserts", CategoryFragment.newInstance("Deserts")));
+        categories.add(new Category("Other", CategoryFragment.newInstance("Other")));
         ArrayList<Fragment> fragments = new ArrayList<>();
         fragments.add(CategoryFragment.newInstance("Food"));
         fragments.add(CategoryFragment.newInstance("Drinks"));
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     @Override
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                        tab.setText(tabs.get(position).getTabName());
+                        tab.setText(categories.get(position).getName());
                     }
                 }).attach();
 
